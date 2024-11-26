@@ -8,7 +8,14 @@ require('dotenv').config();
 const sqlConfig = require('./config/dbConfig');
 
 const app = express();
-app.use(cors());
+
+// Configuración de CORS
+app.use(cors({
+    origin: ['http://localhost:3000', 'http://192.168.88.25'], // Permitir solicitudes desde estos orígenes
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'] // Cabeceras permitidas
+}));
+
 app.use(express.json());
 
 // Verificar conexión a la base de datos
@@ -37,11 +44,10 @@ app.use((err, req, res, next) => {
 });
 
 // Leer puerto y host desde el archivo .env
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9100;
 const HOST = process.env.HOST || 'localhost'; // Por defecto localhost si no está configurado
 
 // Iniciar el servidor
 app.listen(PORT, HOST, () => {
     console.log(`Servidor corriendo en http://${HOST}:${PORT}`);
 });
-
