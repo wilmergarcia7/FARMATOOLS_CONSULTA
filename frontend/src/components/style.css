@@ -1,0 +1,22 @@
+.consulta-container {
+    padding: 20px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    margin-right: 10px;
+    padding: 5px;
+    width: 200px;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+.custom-header {
+    background-color: #000; /* negro */
+    color: white;
+}
