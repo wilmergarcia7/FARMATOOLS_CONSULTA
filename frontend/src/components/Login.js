@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Form, Button, Row, Col, Card, Stack } from 'react-bootstrap';
 import './style.css';
-require('dotenv').config();
+
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -37,7 +37,7 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post(`${process.env.API_URL}/login`, { username, password });
+            const response = await axios.post(`http://192.168.88.25:9100/api/login`, { username, password });
             localStorage.setItem('token', response.data.token);
             navigate('/consulta');
         } catch (error) {

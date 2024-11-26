@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Table, Button, Container, Form, Row, Col, Stack } from "react-bootstrap";
 import { format } from "date-fns";
-require('dotenv').config();
+
 
 function Consulta() {
   const [identidad, setIdentidad] = useState("");
@@ -54,7 +54,7 @@ function Consulta() {
       }
 
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/consulta?identidad=${identidad}`,
+        `http://192.168.88.25:9100/api/consulta?identidad=${identidad}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
